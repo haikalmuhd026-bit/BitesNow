@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings | BitesNow Food Delivery</title>
+    <link rel="icon" href="images/fav.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product_review.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="images/BitesNow.png" alt="BitesNow Logo">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section review-section" aria-labelledby="formTitle">
+            <h1 id="formTitle">Rate Your Order</h1>
+            <p class="menu-intro">Tell us what you ate. Your feedback helps other customers choose.</p>
+
+            <!-- Change action to your real handler (for example submit_review.php) -->
+            <form class="review-form" method="post" action="submit_review.php">
+
+                <div class="field">
+                    <label for="reviewer">Your name <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="reviewer" name="reviewer" autocomplete="name" placeholder="e.g. Aisha" required>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="product">Food you ordered</label>
+                        <select id="product" name="product">
+                            <option>Laksa Mee</option>
+                            <option>Pandan Chicken</option>
+                            <option>Fried Rice</option>
+                            <option>Fried Tofu</option>
+                            <option>Strawberry Falooda</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="drink">Drink <span class="req" aria-hidden="true">*</span></label>
+                        <select id="drink" name="drink" required>
+                            <option value="" selected disabled>Choose one</option>
+                            <option>Coffee</option>
+                            <option>Tea</option>
+                            <option>Milk</option>
+                            <option>None</option>
+                        </select>
+                    </div>
+                </div>
+
+                <fieldset class="field">
+                    <legend>Your rating <span class="req" aria-hidden="true">*</span></legend>
+                    <div class="star-input">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5" title="5 stars"><span class="sr-only">5 stars</span>★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars"><span class="sr-only">4 stars</span>★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars"><span class="sr-only">3 stars</span>★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars"><span class="sr-only">2 stars</span>★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star"><span class="sr-only">1 star</span>★</label>
+                    </div>
+                </fieldset>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="pros">What was good?</label>
+                        <textarea id="pros" name="pros" rows="3" placeholder="Tasty, arrived hot..."></textarea>
+                    </div>
+                    <div class="field">
+                        <label for="cons">What could be better?</label>
+                        <textarea id="cons" name="cons" rows="3" placeholder="Portion size, delivery time..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="review">Your review <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="review" name="review" rows="6" required placeholder="Share your experience..."></textarea>
+                </div>
+
+                <fieldset class="field">
+                    <legend>Would you recommend it to others?</legend>
+                    <div class="choice-group">
+                        <label class="choice"><input type="radio" name="recommend" value="Yes"> <span>Yes</span></label>
+                        <label class="choice"><input type="radio" name="recommend" value="No"> <span>No</span></label>
+                        <label class="choice"><input type="radio" name="recommend" value="Not sure"> <span>Not sure</span></label>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="cta-btn submit-btn">Submit review</button>
+                <p class="form-note"><span class="req">*</span> Required fields</p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Highlight the current page link
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach((link) => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
+        // Cart badge
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('bitesnowCart')) || []; }
+            catch (e) { return []; }
+        }
+        const badge = document.getElementById('cartCount');
+        const total = getCart().reduce((sum, item) => sum + item.qty, 0);
+        if (badge) { badge.textContent = total; badge.hidden = total === 0; }
+    </script>
+
+</body>
+</html>

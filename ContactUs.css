@@ -1,0 +1,181 @@
+/* ===================================================
+   BITESNOW - CONTACT US STYLESHEET (ContactUs.css)
+   =================================================== */
+
+.contact-wrap {
+    max-width: 1000px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.contact-wrap h1 {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.contact-intro {
+    color: #ffffff;
+    margin-bottom: 28px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Two-column layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Glassmorphism Cards */
+.contact-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+}
+
+.contact-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.35rem;
+    color: #7CFC00;
+}
+
+/* Contact Info List */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+    color: #d1d5db;
+    font-size: 0.95rem;
+}
+
+.contact-list li {
+    margin-bottom: 12px;
+}
+
+.contact-list strong {
+    color: #7CFC00;
+    display: inline-block;
+    min-width: 90px;
+}
+
+.contact-list a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-list a:hover {
+    color: #7CFC00;
+    text-decoration: underline;
+}
+
+/* Form Controls */
+.form-field {
+    margin-bottom: 18px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="email"]:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #7CFC00;
+    box-shadow: 0 0 0 3px rgba(124, 252, 0, 0.2);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+/* Submit Button */
+.btn-submit-contact {
+    display: block;
+    width: 100%;
+    background-color: #7CFC00;
+    color: #000000;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.btn-submit-contact:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-submit-contact:active {
+    transform: translateY(0);
+}
+
+/* Feedback Alerts */
+.alert-box {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.alert-success {
+    background-color: #14532d;
+    color: #bbf7d0;
+    border: 1px solid #22c55e;
+}
+
+.alert-error {
+    background-color: #7f1d1d;
+    color: #fecaca;
+    border: 1px solid #ef4444;
+}
+
+/* Responsive adjustment for Mobile */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-wrap {
+        margin: 20px auto 40px auto;
+    }
+
+    .contact-wrap h1 {
+        font-size: 2rem;
+    }
+}

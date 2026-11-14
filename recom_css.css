@@ -1,0 +1,97 @@
+/* ===== Reviews page ===== */
+.reviews-top {
+    margin-bottom: 32px;
+}
+
+.reviews-top .eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7CFC00;
+}
+
+.reviews-top h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 300;
+}
+
+/* Grid of boxes */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+/* Each review in a white box */
+.review-card {
+    padding: 22px;
+    background-color: #ffffff;
+    border: 2px solid #2ecc40;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.review-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviewer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.reviewer strong {
+    display: block;
+    color: #111;
+    font-size: 1rem;
+}
+
+.reviewer span {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.stars {
+    color: #e6a800; /* darker gold so it shows on white */
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.review-card blockquote {
+    margin: 0;
+}
+
+.review-card blockquote p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #222;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-card:hover { transform: none; }
+}

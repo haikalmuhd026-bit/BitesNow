@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location | BitesNow Food Delivery</title>
+    <link rel="icon" href="images/BitesNow.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="location.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="images/BitesNow.png" alt="BitesNow">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section location-section" aria-labelledby="locTitle">
+            <h1 id="locTitle">Find Us</h1>
+            <p class="menu-intro">Come pick up your order, or send us a message.</p>
+
+            <div class="location-grid">
+
+                <!-- Map + store info -->
+                <div class="map-panel">
+                    <div class="map-frame">
+                        <iframe
+                            title="Map showing the BitesNow store location"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.769295193042!2d101.57733077952776!3d3.109962490131466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4dcedcd010e3%3A0x34dd1560f8ddea56!2sEvolve%20Mall!5e0!3m2!1sen!2smy!4v1624949000209!5m2!1sen!2smy"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div class="panel store-info">
+                        <h2>Store Kitchen</h2>
+                        <dl>
+                            <div><dt>Address</dt><dd>Jalan PJU 1A/4A, Petaling Jaya, Selangor</dd></div>
+                            <div><dt>Hours</dt><dd>Daily, 10:00 AM – 10:00 PM</dd></div>
+                            <div><dt>Phone</dt><dd><a href="tel:+60172623084">+60 17-262 3084</a></dd></div>
+                        </dl>
+                        <div class="info-actions">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Evolve%20Mall" target="_blank" rel="noopener noreferrer" class="tbl-btn tbl-btn-primary">Get Directions</a>
+                            <a href="tel:+60172623084" class="tbl-btn">Call Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact form -->
+                <div class="panel">
+                    <h2>Send Us a Message</h2>
+
+                    <!-- Change action to your real handler (for example contact.php) -->
+                    <form class="contact-form" method="post" action="contact.php">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="cta-btn contact-submit">Send message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Highlight the current page link
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach((link) => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
+        // Cart badge
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('bitesnowCart')) || []; }
+            catch (e) { return []; }
+        }
+        const badge = document.getElementById('cartCount');
+        const total = getCart().reduce((sum, item) => sum + item.qty, 0);
+        if (badge) { badge.textContent = total; badge.hidden = total === 0; }
+    </script>
+
+</body>
+</html>

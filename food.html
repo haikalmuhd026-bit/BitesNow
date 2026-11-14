@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | BitesNow Food Delivery</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="images/BitesNow.png" alt="BitesNow Logo">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <section class="section">
+        <h1>Our Menu</h1>
+        <p class="menu-intro">Freshly made and delivered hot to your door.</p>
+
+        <div class="cards menu-cards">
+            <div class="card">
+                <img src="images/Laksa.jpg" alt="Laksa Mee" loading="lazy">
+                <h3>Laksa Mee</h3>
+                <p class="price">RM 13</p>
+                <button class="add-btn" data-name="Laksa Mee" data-price="13">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src=" images/Pandan Chicken.jpg" alt="Pandan Chicken" loading="lazy">
+                <h3>Pandan Chicken</h3>
+                <p class="price">RM 12</p>
+                <button class="add-btn" data-name="Pandan Chicken" data-price="12">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/fried-rice.jpg" alt="Fried Rice" loading="lazy">
+                <h3>Fried Rice</h3>
+                <p class="price">RM 12</p>
+                <button class="add-btn" data-name="Fried Rice" data-price="12">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/fried-tofu.jpg" alt="Fried Tofu" loading="lazy">
+                <h3>Fried Tofu</h3>
+                <p class="price">RM 9</p>
+                <button class="add-btn" data-name="Fried Tofu" data-price="9">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/Coffee.jpg" alt="Coffee" loading="lazy">
+                <h3>Coffee</h3>
+                <p class="price">RM 8</p>
+                <button class="add-btn" data-name="Coffee" data-price="8">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/Milk.jpg" alt="Milk" loading="lazy">
+                <h3>Milk</h3>
+                <p class="price">RM 4</p>
+                <button class="add-btn" data-name="Milk" data-price="4">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/tea.jpg" alt="Tea" loading="lazy">
+                <h3>Tea</h3>
+                <p class="price">RM 8</p>
+                <button class="add-btn" data-name="Tea" data-price="8">Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/strawberry-falooda.jpg" alt="Strawberry Falooda" loading="lazy">
+                <h3>Strawberry Falooda</h3>
+                <p class="price">RM 8</p>
+                <button class="add-btn" data-name="Strawberry Falooda" data-price="8">Add to cart</button>
+            </div>
+        </div>
+    </section>
+
+<section class="section contact-directory" aria-labelledby="supportTitle">
+    <div class="directory-header">
+        <h2 id="supportTitle">Customer Support Directory</h2>
+        <p class="directory-subtext">Find the right channel for order updates, dietary inquiries, or kitchen visits.</p>
+        <p class="open-now" id="openNow" data-state="open">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="openNowText">Kitchen open · 10:00 AM – 10:00 PM daily</span>
+        </p>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="contact-table">
+            <caption class="sr-only">BitesNow contact channels</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Channel</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col" class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="channel-cell">
+                            <div class="channel-icon">
+                                <!-- keep your WhatsApp SVG here -->
+                            </div>
+                            <div>
+                                <strong>WhatsApp Chat</strong>
+                                <span class="channel-note">Fastest for ongoing deliveries</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Details"><span class="detail-text">+60 17-262 3084</span></td>
+                    <td data-label="Availability"><span class="status-badge live">Daily 10 AM – 10 PM</span></td>
+                    <td class="text-right">
+                        <a href="https://wa.me/60172623084" target="_blank" rel="noopener noreferrer"
+                           class="tbl-btn tbl-btn-primary" aria-label="Chat with BitesNow on WhatsApp">Chat Now</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="channel-cell">
+                            <div class="channel-icon"><!-- keep your phone SVG --></div>
+                            <div>
+                                <strong>Phone Dispatch</strong>
+                                <span class="channel-note">Direct kitchen hotline</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Details"><span class="detail-text">+60 17-262 3084</span></td>
+                    <td data-label="Availability"><span class="status-badge open">10:00 AM – 10:00 PM</span></td>
+                    <td class="text-right">
+                        <a href="tel:+60172623084" class="tbl-btn" aria-label="Call BitesNow">Call Us</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="channel-cell">
+                            <div class="channel-icon"><!-- keep your email SVG --></div>
+                            <div>
+                                <strong>Email Inquiries</strong>
+                                <span class="channel-note">Catering &amp; corporate orders</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Details"><span class="detail-text">BitesNow@gmail.com</span></td>
+                    <td data-label="Availability"><span class="status-badge standard">Reply within 24 hrs</span></td>
+                    <td class="text-right">
+                        <a href="mailto:BitesNow@gmail.com?subject=Catering%20Enquiry" class="tbl-btn">Send Email</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="channel-cell">
+                            <div class="channel-icon"><!-- keep your pin SVG --></div>
+                            <div>
+                                <strong>Store Kitchen</strong>
+                                <span class="channel-note">Self pickup counter</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="Details"><span class="detail-text">Jalan PJU 1A/4A, Petaling Jaya, Selangor</span></td>
+                    <td data-label="Availability"><span class="status-badge open">Daily 10 AM – 10 PM</span></td>
+                    <td class="text-right">
+                        <a href="location.html" class="tbl-btn">Directions</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+        
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Highlight the current page link
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach((link) => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
+        // Simple cart (saved in the browser localStorage)
+        const CART_KEY = 'bitesnowCart';
+
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+            catch (e) { return []; }
+        }
+
+        function saveCart(cart) {
+            try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } 
+            catch (e) { console.error('Could not save cart', e); }
+        }
+
+        function updateBadge() {
+            const total = getCart().reduce((sum, item) => sum + item.qty, 0);
+            const badge = document.getElementById('cartCount');
+            if (badge) {
+                badge.textContent = total;
+                badge.hidden = total === 0;
+            }
+        }
+
+        document.querySelectorAll('.add-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const cart = getCart();
+                const name = btn.dataset.name;
+                const price = parseFloat(btn.dataset.price);
+                const item = cart.find(i => i.name === name);
+                
+                if (item) { 
+                    item.qty++; 
+                } else { 
+                    cart.push({ name, price, qty: 1 }); 
+                }
+                
+                saveCart(cart);
+                updateBadge();
+                
+                // Button feedback animation
+                btn.textContent = 'Added \u2713';
+                btn.disabled = true;
+                setTimeout(() => { 
+                    btn.textContent = 'Add to cart'; 
+                    btn.disabled = false;
+                }, 1200);
+            });
+        });
+
+        updateBadge();
+    </script>
+
+</body>
+</html>

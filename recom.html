@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended | BitesNow Food Delivery</title>
+    <link rel="icon" href="images/fav.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="recom_css.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="images/BitesNow.png" alt="BitesNow Logo">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" aria-labelledby="reviewsTitle">
+            <div class="reviews-top">
+                <span class="eyebrow">Recommendations</span>
+                <h1 id="reviewsTitle">Customer Reviews</h1>
+            </div>
+
+            <div class="reviews-grid">
+
+                <!-- Review 1 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/james.jpg" alt="James Jameson" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>James Jameson</strong>
+                                <span>@JJameson96</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</span>
+                    </div>
+                    <blockquote>
+                        <p>I was quite skeptical when I ordered the laksa. The broth, the texture, everything is as authentic as it can be.</p>
+                    </blockquote>
+                </article>
+
+                <!-- Review 2 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/karim.jpg" alt="Karim Jalaludain" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>Karim Jalaludain</strong>
+                                <span>@KareemJal</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</span>
+                    </div>
+                    <blockquote>
+                        <p>The pandan chicken I had was bombastic. Would recommend for newcomers to try this alongside their dessert.</p>
+                    </blockquote>
+                </article>
+
+                <!-- Review 3 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/nash.png" alt="Nash Feril" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>Nash Feril</strong>
+                                <span>@Nashooke</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</span>
+                    </div>
+                    <blockquote>
+                        <p>Pretty good! Had the fried rice and tea for lunch. Quite affordable for what I got on my plate.</p>
+                    </blockquote>
+                </article>
+
+                <!-- Review 4 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/suria.jpg" alt="Suriawati Mentari" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>Suriawati Mentari</strong>
+                                <span>@SuriSuram</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+                    </div>
+                    <blockquote>
+                        <p>The quality of the coffee surprises me. At first I thought the food would be average, but when I tasted the coffee it blew my mind. 100% would order again.</p>
+                    </blockquote>
+                </article>
+
+                <!-- Review 5 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/farah.jpg" alt="Farah Fauzana" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>Farah Fauzana</strong>
+                                <span>@FarFauz98</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</span>
+                    </div>
+                    <blockquote>
+                        <p>Really good, but my only gripe is the menu. NEED MORE FOOD hahaha. Jokes aside, overall it's a quite good place that not a lot of people know about.</p>
+                    </blockquote>
+                </article>
+
+                <!-- Review 6 -->
+                <article class="review-card">
+                    <div class="review-top">
+                        <div class="reviewer">
+                            <img src="images/ahmad.jpg" alt="Ahmad Hamdul" width="50" height="50" loading="lazy">
+                            <div>
+                                <strong>Ahmad Hamdul</strong>
+                                <span>@AhamadHamd</span>
+                            </div>
+                        </div>
+                        <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+                    </div>
+                    <blockquote>
+                        <p>Ordered because of a friend's suggestion. The food was very well prepared and crafted. Do try their Strawberry Falooda though, quite the treat!</p>
+                    </blockquote>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Highlight the current page link
+        const currentPage = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach((link) => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
+        // Cart badge (cart is saved in localStorage)
+        const CART_KEY = 'bitesnowCart';
+
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+            catch (e) { return []; }
+        }
+
+        function updateBadge() {
+            const total = getCart().reduce((sum, item) => sum + item.qty, 0);
+            const badge = document.getElementById('cartCount');
+            if (badge) {
+                badge.textContent = total;
+                badge.hidden = total === 0;
+            }
+        }
+
+        updateBadge();
+    </script>
+
+</body>
+</html>

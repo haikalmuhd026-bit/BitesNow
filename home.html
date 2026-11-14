@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitesNow Food Delivery</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">
+                <img src="BitesNow.png" alt="BitesNow Logo">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="section hero">
+        <h1>Welcome to Food Delivery!</h1>
+        <p>Online food delivery and fast service. The only one you can believe and trust.</p>
+        <a href="food.html" class="cta-btn">Order Now</a>
+    </section>
+
+    <!-- Popular dishes -->
+    <section class="section">
+        <h2>Our Popular Dishes</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="Laksa.jpg" alt="Laksa Mee">
+                <h3>Laksa Mee</h3>
+                <p class="price">RM 9.90</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+            <div class="card">
+                <img src="Pandan Chicken.jpg" alt="Pandan Chicken">
+                <h3>Pandan Chicken</h3>
+                <p class="price">RM 12.90</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+            <div class="card">
+                <img src="fried-rice.jpg" alt="Fried Rice">
+                <h3>Fried Rice</h3>
+                <p class="price">RM 8.90</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+            <div class="card">
+                <img src="fried-tofu.jpg" alt="Fried Tofu">
+                <h3>Fried Tofu</h3>
+                <p class="price">RM 6.90</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+            <div class="card">
+                <img src="Coffee.jpg" alt="Coffee">
+                <h3>Coffee</h3>
+                <p class="price">RM 4.50</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+            <div class="card">
+                <img src="strawberry-falooda.jpg" alt="Strawberry Falooda">
+                <h3>Strawberry Falooda</h3>
+                <p class="price">RM 9.50</p>
+                <a href="food.html" class="order-link">Order</a>
+            </div>
+        </div>
+        <p style="margin-top:25px;">Also available: Milk and Tea. <a href="food.html" style="color:#7CFC00;">See the full menu</a></p>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+        <h2>How It Works</h2>
+        <div class="cards">
+            <div class="card"><h3>1. Choose</h3><p>Pick your favourite dishes from the menu.</p></div>
+            <div class="card"><h3>2. Order</h3><p>Add to cart and check out.</p></div>
+            <div class="card"><h3>3. Enjoy</h3><p>We deliver hot food to your door.</p></div>
+        </div>
+    </section>
+
+    <!-- Delivery info -->
+    <section class="section">
+        <h2>Delivery Info</h2>
+        <div class="info">
+            <p>Open daily<br>10:00 AM - 10:00 PM</p>
+            <p>Delivery time<br>30 - 45 minutes</p>
+            <p>Delivery area<br>Within 10 km of our kitchen</p>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section">
+        <h2>What Customers Say</h2>
+        <div class="cards">
+            <div class="review">
+                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <p>"Arrived hot and on time. The laksa was great."</p>
+            </div>
+            <div class="review">
+                <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                <p>"Easy to order, and the falooda was fresh."</p>
+            </div>
+        </div>
+        <p style="margin-top:20px;"><a href="product_review.html" style="color:#7CFC00;">Read all ratings</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Phone: 012-345 6789 | Email: BitesNow.com</p>
+        <p>
+            <a href="AboutUs.html">About Us</a> |
+            <a href="location.html">Location</a> |
+            <a href="product_review.html">Ratings</a>
+        </p>
+        <p>&copy; 2026 BitesNow. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        var toggle = document.getElementById('navToggle');
+        var nav = document.getElementById('siteNav');
+        toggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+
+        // Highlight the current page link
+        var here = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach(function (a) {
+            if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
+        });
+    </script>
+
+</body>
+</html>

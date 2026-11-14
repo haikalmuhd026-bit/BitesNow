@@ -1,0 +1,212 @@
+/* ===== Checkout page ===== */
+.checkout-section {
+    max-width: 1000px;
+    text-align: left;
+}
+
+.checkout-section h1,
+.checkout-section .menu-intro {
+    text-align: center;
+}
+
+.checkout-section .menu-intro {
+    margin-bottom: 30px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+}
+
+.checkout-form {
+    display: grid;
+    gap: 20px;
+}
+
+/* Panels */
+.checkout-form .panel {
+    margin: 0;
+    min-width: 0;
+    padding: 22px;
+    background-color: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    display: grid;
+    gap: 18px;
+}
+
+.checkout-form legend {
+    padding: 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.field-row.three {
+    grid-template-columns: 1.2fr 1.2fr 0.8fr;
+}
+
+.field {
+    min-width: 0;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e6e6e6;
+}
+
+.optional {
+    font-weight: normal;
+    color: #9a9a9a;
+}
+
+/* Inputs */
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"],
+.checkout-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkout-form ::placeholder {
+    color: #8a8a8a;
+}
+
+.checkout-form select option {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.checkout-form input:focus,
+.checkout-form select:focus {
+    outline: none;
+    border-color: #2ecc40;
+    box-shadow: 0 0 0 3px rgba(46, 204, 64, 0.25);
+}
+
+.checkout-form input:user-invalid,
+.checkout-form select:user-invalid {
+    border-color: #ff6b6b;
+}
+
+/* Pay button */
+.pay-btn {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    background-color: #1e8e2e;
+    border-color: #1e8e2e;
+}
+
+.pay-btn:hover:not(:disabled) {
+    background-color: #27ae3a;
+}
+
+.pay-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Order summary */
+.order-summary {
+    position: sticky;
+    top: 90px;
+    padding: 22px;
+    background-color: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+.order-summary h2 {
+    margin: 0 0 14px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: left;
+}
+
+.summary-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.summary-items li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e0e0e0;
+}
+
+.summary-empty {
+    margin: 0;
+    color: #cfcfcf;
+}
+
+.summary-empty[hidden] {
+    display: none;
+}
+
+.sum-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 14px;
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.sum-row strong {
+    color: #7CFC00;
+}
+
+.edit-btn {
+    display: block;
+    margin-top: 16px;
+    text-align: center;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    text-decoration: none;
+}
+
+/* Tablet and phone: summary on top, then the form */
+@media (max-width: 820px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width: 560px) {
+    .field-row,
+    .field-row.three {
+        grid-template-columns: 1fr;
+    }
+}

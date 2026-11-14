@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | BitesNow Food Delivery</title>
+    <link rel="icon" href="images/BitesNow.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="home.html" class="brand">
+                <img src="images/BitesNow.png" alt="">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section cart-section" aria-labelledby="cartTitle">
+            <h1 id="cartTitle">Your Cart</h1>
+            <p class="menu-intro">Review your order before checking out.</p>
+
+            <!-- Shown when the cart has nothing in it -->
+            <div id="cartEmpty" class="cart-empty" hidden>
+                <p>Your cart is empty.</p>
+                <a href="food.html" class="tbl-btn tbl-btn-primary">Browse the menu</a>
+            </div>
+
+            <!-- Shown when the cart has items -->
+            <div id="cartContent" class="cart-grid" hidden>
+                <ul id="cartItems" class="cart-list" aria-label="Items in your cart"></ul>
+
+                <aside class="cart-summary" aria-labelledby="summaryTitle">
+                    <h2 id="summaryTitle">Order Summary</h2>
+                    <div class="sum-row"><span>Items</span><span id="itemCount">0</span></div>
+                    <div class="sum-row total"><span>Total</span><strong id="cartTotal" aria-live="polite">RM 0.00</strong></div>
+
+                    <a href="checkout.html" class="cta-btn checkout-btn">Check out</a>
+                    <a href="food.html" class="tbl-btn more-btn">Add more food</a>
+                    <button type="button" id="clearCart" class="link-btn">Clear cart</button>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Highlight the current page link
+        const currentPage = location.pathname.split('/').pop() || 'home.html';
+        document.querySelectorAll('.nav-links a, .nav-cart').forEach((link) => {
+            if (link.getAttribute('href') === currentPage) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
+        // Cart (same storage key as the menu page)
+        const CART_KEY = 'bitesnowCart';
+
+        function getCart() {
+            try {
+                const data = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+                return data.filter(i => i && i.name && i.price >= 0 && i.qty > 0);
+            } catch (e) { return []; }
+        }
+
+        function saveCart(cart) {
+            try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
+            catch (e) { console.error('Could not save cart', e); }
+        }
+
+        function money(n) { return 'RM ' + n.toFixed(2); }
+
+        function makeButton(text, label, className, onClick) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = text;
+            b.className = className;
+            b.setAttribute('aria-label', label);
+            b.addEventListener('click', onClick);
+            return b;
+        }
+
+        function render() {
+            const cart = getCart();
+            const list = document.getElementById('cartItems');
+            const empty = document.getElementById('cartEmpty');
+            const content = document.getElementById('cartContent');
+            const badge = document.getElementById('cartCount');
+
+            const count = cart.reduce((s, i) => s + i.qty, 0);
+            const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+            if (badge) { badge.textContent = count; badge.hidden = count === 0; }
+            empty.hidden = cart.length > 0;
+            content.hidden = cart.length === 0;
+
+            list.replaceChildren();
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'cart-item';
+
+                const info = document.createElement('div');
+                info.className = 'item-info';
+                const name = document.createElement('strong');
+                name.textContent = item.name;
+                const unit = document.createElement('span');
+                unit.textContent = money(item.price) + ' each';
+                info.append(name, unit);
+
+                const qty = document.createElement('div');
+                qty.className = 'qty';
+                const num = document.createElement('span');
+                num.className = 'qty-num';
+                num.textContent = item.qty;
+                qty.append(
+                    makeButton('−', 'Decrease quantity of ' + item.name, 'qty-btn', () => changeQty(index, -1)),
+                    num,
+                    makeButton('+', 'Increase quantity of ' + item.name, 'qty-btn', () => changeQty(index, 1))
+                );
+
+                const line = document.createElement('div');
+                line.className = 'line-total';
+                line.textContent = money(item.price * item.qty);
+
+                const remove = makeButton('Remove', 'Remove ' + item.name + ' from cart', 'remove-btn', () => removeItem(index));
+
+                li.append(info, qty, line, remove);
+                list.appendChild(li);
+            });
+
+            document.getElementById('itemCount').textContent = count;
+            document.getElementById('cartTotal').textContent = money(total);
+        }
+
+        function changeQty(index, delta) {
+            const cart = getCart();
+            if (!cart[index]) return;
+            cart[index].qty += delta;
+            if (cart[index].qty < 1) cart.splice(index, 1);
+            saveCart(cart);
+            render();
+        }
+
+        function removeItem(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            render();
+        }
+
+        document.getElementById('clearCart').addEventListener('click', () => {
+            if (confirm('Remove everything from your cart?')) {
+                saveCart([]);
+                render();
+            }
+        });
+
+        render();
+    </script>
+
+</body>
+</html>

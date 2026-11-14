@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | BitesNow Food Delivery</title>
+    <link rel="icon" href="images/BitesNow.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="home.html" class="brand">
+                <img src="images/BitesNow.png" alt="">
+                <span>BitesNow</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="site-nav" id="siteNav" aria-label="Main">
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="food.html">Menu</a></li>
+                    <li><a href="recom.html">Recommended</a></li>
+                    <li><a href="product_review.html">Ratings</a></li>
+                    <li><a href="location.html">Location</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="cart.html" class="nav-cart" aria-label="Cart">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                        <span class="nav-cart-label">Cart</span>
+                        <span class="cart-count" id="cartCount" hidden>0</span>
+                    </a>
+                    <a href="logout.php" class="nav-logout">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section checkout-section" aria-labelledby="checkoutTitle">
+            <h1 id="checkoutTitle">Checkout</h1>
+            <p class="menu-intro">Enter your delivery details and pay to place your order.</p>
+
+            <div class="checkout-grid">
+
+                <!-- Change action to your real order handler (for example place_order.php) -->
+                <form id="checkoutForm" class="checkout-form" method="post" action="place_order.php">
+
+                    <fieldset class="panel">
+                        <legend>Delivery details</legend>
+
+                        <div class="field">
+                            <label for="fullname">Full name</label>
+                            <input type="text" id="fullname" name="fullname" autocomplete="name" required>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 012-345 6789" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" autocomplete="street-address" required>
+                        </div>
+
+                        <div class="field-row three">
+                            <div class="field">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" autocomplete="address-level2" required>
+                            </div>
+                            <div class="field">
+                                <label for="state">State</label>
+                                <select id="state" name="state" autocomplete="address-level1" required>
+                                    <option value="" selected disabled>Choose state</option>
+                                    <option>Johor</option>
+                                    <option>Kedah</option>
+                                    <option>Kelantan</option>
+                                    <option>Kuala Lumpur</option>
+                                    <option>Labuan</option>
+                                    <option>Melaka</option>
+                                    <option>Negeri Sembilan</option>
+                                    <option>Pahang</option>
+                                    <option>Perak</option>
+                                    <option>Perlis</option>
+                                    <option>Pulau Pinang</option>
+                                    <option>Putrajaya</option>
+                                    <option>Sabah</option>
+                                    <option>Sarawak</option>
+                                    <option>Selangor</option>
+                                    <option>Terengganu</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="postcode">Postcode</label>
+                                <input type="text" id="postcode" name="postcode" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="notes">Delivery notes <span class="optional">(optional)</span></label>
+                            <input type="text" id="notes" name="notes" placeholder="e.g. Leave at the guardhouse">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="panel">
+                        <legend>Payment</legend>
+
+                        <div class="field">
+                            <label for="cardname">Name on card</label>
+                            <input type="text" id="cardname" name="cardname" autocomplete="cc-name" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="cardnumber">Card number</label>
+                            <input type="text" id="cardnumber" name="cardnumber" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="23" pattern="[0-9 ]{13,23}" required>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="cardexp">Expiry (MM/YY)</label>
+                                <input type="text" id="cardexp" name="cardexp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
+                            </div>
+                            <div class="field">
+                                <label for="cardcvv">CVV</label>
+                                <input type="text" id="cardcvv" name="cardcvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4" pattern="[0-9]{3,4}" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Items sent to the server; the server must recalculate prices itself -->
+                    <input type="hidden" name="order" id="orderField">
+
+                    <button type="submit" class="cta-btn pay-btn" id="payBtn" disabled>Pay</button>
+                </form>
+
+                <!-- Order summary -->
+                <aside class="order-summary" aria-labelledby="summaryTitle">
+                    <h2 id="summaryTitle">Your Order</h2>
+                    <ul id="summaryItems" class="summary-items"></ul>
+                    <p id="summaryEmpty" class="summary-empty" hidden>Your cart is empty.</p>
+                    <div class="sum-row total"><span>Total</span><strong id="summaryTotal">RM 0.00</strong></div>
+                    <a href="cart.html" class="tbl-btn edit-btn">Edit cart</a>
+                </aside>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('siteNav');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
+        }
+
+        // Cart (same storage key as the menu and cart pages)
+        const CART_KEY = 'bitesnowCart';
+
+        function getCart() {
+            try {
+                const data = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+                return data.filter(i => i && i.name && i.price >= 0 && i.qty > 0);
+            } catch (e) { return []; }
+        }
+
+        function money(n) { return 'RM ' + n.toFixed(2); }
+
+        const cart = getCart();
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+        // Header badge
+        const badge = document.getElementById('cartCount');
+        if (badge) { badge.textContent = count; badge.hidden = count === 0; }
+
+        // Order summary
+        const list = document.getElementById('summaryItems');
+        cart.forEach((item) => {
+            const li = document.createElement('li');
+            const left = document.createElement('span');
+            left.textContent = item.qty + ' × ' + item.name;
+            const right = document.createElement('span');
+            right.textContent = money(item.price * item.qty);
+            li.append(left, right);
+            list.appendChild(li);
+        });
+        document.getElementById('summaryTotal').textContent = money(total);
+        document.getElementById('summaryEmpty').hidden = cart.length > 0;
+
+        // Pay button
+        const payBtn = document.getElementById('payBtn');
+        payBtn.textContent = 'Pay ' + money(total);
+        payBtn.disabled = cart.length === 0;
+
+        // Send the items along with the form
+        document.getElementById('checkoutForm').addEventListener('submit', () => {
+            document.getElementById('orderField').value = JSON.stringify(cart);
+        });
+
+        // Tidy card input: group the number in 4s, add "/" to expiry
+        const cardNumber = document.getElementById('cardnumber');
+        cardNumber.addEventListener('input', () => {
+            const digits = cardNumber.value.replace(/\D/g, '').slice(0, 19);
+            cardNumber.value = digits.replace(/(.{4})/g, '$1 ').trim();
+        });
+
+        const cardExp = document.getElementById('cardexp');
+        cardExp.addEventListener('input', () => {
+            let digits = cardExp.value.replace(/\D/g, '').slice(0, 4);
+            if (digits.length > 2) digits = digits.slice(0, 2) + '/' + digits.slice(2);
+            cardExp.value = digits;
+        });
+    </script>
+
+</body>
+</html>
